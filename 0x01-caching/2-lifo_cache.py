@@ -30,7 +30,7 @@ class LIFOCache(BaseCaching):
                 if self.updated_key != "":
                     del self.cache_data[self.updated_key]
                     print(f"DISCARD: {self.updated_key}")
-                else:    
+                else:
                     del self.cache_data[last_item]
                     print(f"DISCARD: {last_item}")
                     return last_item
