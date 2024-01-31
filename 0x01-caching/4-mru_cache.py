@@ -31,7 +31,6 @@ class MRUCache(BaseCaching):
                 if key not in self.keys_count:
                     self.keys_count.append(key)
 
-
     def get(self, key):
         """Retrieves an item from the cache."""
         value = self.cache_data.get(key, None)
