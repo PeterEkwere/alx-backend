@@ -26,11 +26,15 @@ class LIFOCache(BaseCaching):
                 self.cache_data[key] = item
                 self.updated_key = key
             else:
-                last_item = next(reversed(self.cache_data))
+                try:
+                    last_item = next(reversed(self.cache_data))
+                except StopIteration:
+                    last_item = None
+                    
                 if self.updated_key != "":
                     del self.cache_data[self.updated_key]
                     print(f"DISCARD: {self.updated_key}")
-                else:
+                elif last_item is not None:
                     del self.cache_data[last_item]
                     print(f"DISCARD: {last_item}")
                     return last_item
