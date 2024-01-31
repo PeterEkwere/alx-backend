@@ -37,7 +37,6 @@ class LIFOCache(BaseCaching):
                 elif last_item is not None:
                     del self.cache_data[last_item]
                     print(f"DISCARD: {last_item}")
-                    return last_item
 
         if item is not None and key is not None:
             self.cache_data.setdefault(key, item)
