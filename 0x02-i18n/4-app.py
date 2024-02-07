@@ -26,10 +26,10 @@ def get_locale():
     """
     locale = request.args.get('locale')
 
-    if locale and locale in Config.LANGUAGES:
+    if locale in Config.LANGUAGES:
         return locale
     else:
-        return request.accept_languages.best_match(Config.LANGUAGES)
+        return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 @app.route('/')
